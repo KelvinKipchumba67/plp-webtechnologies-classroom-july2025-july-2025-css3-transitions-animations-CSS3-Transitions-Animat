@@ -21,9 +21,32 @@ document.addEventListener('DOMContentLoaded', function() {
 	// Spinner control
 	const btn = document.querySelector('.btn');
 	const spinner = document.querySelector('.spinner');
+	const stopBtn = document.getElementById('stop-spinner-btn');
 	if (btn && spinner) {
 		btn.addEventListener('click', function() {
 			spinner.classList.add('spinning');
 		});
 	}
+
+	if (stopBtn && spinner) {
+		stopBtn.addEventListener('click', function() {
+			spinner.classList.remove('spinning');
+		});
+	}
+
+	// Card animation logic
+	document.addEventListener('DOMContentLoaded', function() {
+	    const cardButtons = document.querySelectorAll('.card .card-body button');
+	    cardButtons.forEach(btn => {
+	        btn.addEventListener('click', function() {
+	            const card = btn.closest('.card');
+	            if (card) {
+	                card.classList.add('animate');
+	                setTimeout(() => {
+	                    card.classList.remove('animate');
+	                }, 700);
+	            }
+	        });
+	    });
+	});
 });
